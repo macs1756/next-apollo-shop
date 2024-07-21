@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.13.0",
     "framer-motion": "^11.3.8",
     "graphql": "^16.9.0",
+    "nanoid": "^5.0.7",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18"

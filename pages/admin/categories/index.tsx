@@ -1,8 +1,10 @@
 import { CategoryService } from "@/apollo/service/category";
 import { getCategories } from "@/apollo/service/category/types";
+import DlistItem from "@/components/listItem";
 import { LoadingProvider } from "@/layouts";
 import { useQuery } from "@apollo/client";
 import { List } from "@chakra-ui/react";
+import { nanoid } from "nanoid";
 import React from "react";
 
 const AdminCategories: React.FC = () => {
@@ -10,17 +12,13 @@ const AdminCategories: React.FC = () => {
     CategoryService.findAll
   );
 
-  console.log(data?.getAllCategory);
 
   return (
     <LoadingProvider errors={error} loading={loading}>
       <div className="p-[50px]">
-        <List spacing={3}>
+        <List spacing={5}>
           {data?.getAllCategory.map((e) => (
-            <ListItem>
-              <ListIcon as={MdCheckCircle} color="green.500" />
-              {e.label}
-            </ListItem>
+            <DlistItem key={nanoid()} id={e.id} label={e.label} />
           ))}
         </List>
       </div>
