@@ -22,6 +22,16 @@ export interface CreateCategoryResponse {
   createCategory: Category;
 }
 
+export interface UpdateCategoryVariables {
+  id: number;
+  label?: string;
+  slug?: string;
+}
+
+export interface UpdateCategoryResponse {
+  updateCategory: Category;
+}
+
 export interface DeleteCategoryVariables {
   id: number;
 }

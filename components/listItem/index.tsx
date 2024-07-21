@@ -7,11 +7,14 @@ import UpdateListItem from "./updateListItem";
 
 const DlistItem: React.FC<IlistItemProps> = (linkItemData) => {
   return (
-    <ListItem data-id={linkItemData.id} className="flex items-center w-[300px]">
+    <ListItem
+      data-id={linkItemData.id}
+      className="flex items-center w-[300px] relative"
+    >
       <ListItemHead {...linkItemData} />
 
       <Box className="flex gap-2">
-        <UpdateListItem />
+        <UpdateListItem {...linkItemData} />
         <ListItemDeleteButton {...linkItemData} />
       </Box>
     </ListItem>

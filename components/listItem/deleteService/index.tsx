@@ -33,7 +33,7 @@ const ListItemDeleteButton: React.FC<IlistItemProps> = (props) => {
         }}
         as={DeleteIcon}
         color="blue.300"
-        _hover={{ color: "pink.500" }}
+        _hover={{ color: "pink.500", cursor: "pointer" }}
       />
     </Box>
   );
