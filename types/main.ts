@@ -1,4 +1,5 @@
-import { ApolloError } from "@apollo/client";
+import { getCategories } from "@/apollo/service/category/types";
+import { ApolloError, QueryResult } from "@apollo/client";
 import { ReactNode } from "react";
 
 export interface IloadingProviderProps {
@@ -8,6 +9,7 @@ export interface IloadingProviderProps {
 }
 
 export interface IlistItemProps {
-  id: number
-  label: string
+  id: number;
+  label: string;
+  triggerGetCategories?: QueryResult<getCategories>["refetch"];
 }

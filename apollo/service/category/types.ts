@@ -1,4 +1,4 @@
-import { OperationVariables } from "@apollo/client";
+import { QueryResult } from "@apollo/client";
 
 
 
@@ -22,6 +22,17 @@ export interface CreateCategoryResponse {
   createCategory: Category;
 }
 
+export interface DeleteCategoryVariables {
+  id: number;
+}
+
+export interface DeleteCategoryResponse {
+  deleteCategory: {
+    message: string
+  };
+}
+
+
 export interface IcreateCategoryProps {
-  triggerGetCategories: any
+  triggerGetCategories: QueryResult<getCategories>["refetch"];
 }
