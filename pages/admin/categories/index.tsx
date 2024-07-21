@@ -1,5 +1,6 @@
 import { CategoryService } from "@/apollo/service/category";
 import { getCategories } from "@/apollo/service/category/types";
+import CreateListItem from "@/components/createListItem";
 import DlistItem from "@/components/listItem";
 import { LoadingProvider } from "@/layouts";
 import { useQuery } from "@apollo/client";
@@ -8,7 +9,7 @@ import { nanoid } from "nanoid";
 import React from "react";
 
 const AdminCategories: React.FC = () => {
-  const { data, loading, error } = useQuery<getCategories>(
+  const { data, loading, error, refetch } = useQuery<getCategories>(
     CategoryService.findAll
   );
 
@@ -21,6 +22,7 @@ const AdminCategories: React.FC = () => {
             <DlistItem key={nanoid()} id={e.id} label={e.label} />
           ))}
         </List>
+        <CreateListItem triggerGetCategories={refetch} />
       </div>
     </LoadingProvider>
   );

@@ -3,6 +3,7 @@ import { gql, DocumentNode } from "@apollo/client";
 
 interface CategoryServiceInterface {
   findAll: DocumentNode;
+  createOne: DocumentNode;
 }
 
 const findAll = gql`
@@ -15,4 +16,14 @@ const findAll = gql`
   }
 `;
 
-export const CategoryService: CategoryServiceInterface = { findAll };
+const createOne = gql`
+  mutation CreateCategory($label: String!) {
+    createCategory(createCategoryInput: { label: $label }) {
+      id
+      label
+      slug
+    }
+  }
+`;
+
+export const CategoryService: CategoryServiceInterface = { findAll, createOne };
