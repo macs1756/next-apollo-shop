@@ -1,6 +1,6 @@
 import { CategoryService } from "@/apollo/service/category";
 import { getCategories } from "@/apollo/service/category/types";
-import CreateListItem from "@/components/createListItem";
+import CreateListItem from "@/components/listItem/createListItem";
 import DlistItem from "@/components/listItem";
 import { LoadingProvider } from "@/layouts";
 import { useQuery } from "@apollo/client";
@@ -19,7 +19,12 @@ const AdminCategories: React.FC = () => {
       <div className="p-[50px]">
         <List spacing={5}>
           {data?.getAllCategory.map((e) => (
-            <DlistItem key={nanoid()} id={e.id} label={e.label} />
+            <DlistItem
+              triggerGetCategories={refetch}
+              key={nanoid()}
+              id={e.id}
+              label={e.label}
+            />
           ))}
         </List>
         <CreateListItem triggerGetCategories={refetch} />

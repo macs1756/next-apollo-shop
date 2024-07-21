@@ -5,7 +5,7 @@ import React from "react";
 
 const ListItemHead: React.FC<IlistItemProps> = (props) => {
   return (
-    <Box className="flex items-center">
+    <Box className="flex items-center w-full">
       <ListIcon as={LinkIcon} color="blue.300" />
       <Text fontSize="m">{props.label}</Text>
     </Box>

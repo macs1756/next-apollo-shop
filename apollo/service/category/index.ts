@@ -4,6 +4,8 @@ import { gql, DocumentNode } from "@apollo/client";
 interface CategoryServiceInterface {
   findAll: DocumentNode;
   createOne: DocumentNode;
+  deleteOne: DocumentNode;
+  updateOne: DocumentNode;
 }
 
 const findAll = gql`
@@ -26,4 +28,29 @@ const createOne = gql`
   }
 `;
 
-export const CategoryService: CategoryServiceInterface = { findAll, createOne };
+export const deleteOne = gql`
+  mutation DeleteCategory($id: Int!) {
+    deleteCategory(id: $id) {
+      message
+    }
+  }
+`;
+
+export const updateOne = gql`
+  mutation UpdateCategory($label: String, $id: Int!, $slug: String) {
+    updateCategory(
+      updateCategoryInput: { label: $label, id: $id, slug: $slug }
+    ) {
+      id
+      slug
+      label
+    }
+  }
+`;
+
+export const CategoryService: CategoryServiceInterface = {
+  findAll,
+  createOne,
+  deleteOne,
+  updateOne,
+};
