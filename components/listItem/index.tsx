@@ -5,7 +5,6 @@ import ListItemDeleteButton from "./deleteService";
 import ListItemHead from "./renderHead";
 import UpdateListItem from "./updateListItem";
 
-
 const DlistItem: React.FC<IlistItemProps> = (linkItemData) => {
   return (
     <ListItem
