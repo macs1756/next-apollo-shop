@@ -20,7 +20,7 @@ const findAll = gql`
 
 const createOne = gql`
   mutation CreateCategory($label: String!) {
-    createCategory(createCategoryInput: { label: $label }) {
+    createCategory(args: { label: $label }) {
       id
       label
       slug
