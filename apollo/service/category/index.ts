@@ -2,6 +2,7 @@
 import { gql, DocumentNode } from "@apollo/client";
 
 interface CategoryServiceInterface {
+  findOne: DocumentNode;
   findAll: DocumentNode;
   createOne: DocumentNode;
   deleteOne: DocumentNode;
@@ -18,9 +19,22 @@ const findAll = gql`
   }
 `;
 
+const findOne = gql`
+  query GetOneCategory($slug: String!) {
+    getOneCategory(slug: $slug) {
+      label
+      slug
+      subcategories {
+        label
+        slug
+      }
+    }
+  }
+`;
+
 const createOne = gql`
   mutation CreateCategory($label: String!) {
-    createCategory(createCategoryInput: { label: $label }) {
+    createCategory(args: { label: $label }) {
       id
       label
       slug
@@ -49,6 +63,7 @@ export const updateOne = gql`
 `;
 
 export const CategoryService: CategoryServiceInterface = {
+  findOne,
   findAll,
   createOne,
   deleteOne,

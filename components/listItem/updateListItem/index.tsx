@@ -43,7 +43,7 @@ const UpdateListItem: React.FC<IlistItemProps> = (props) => {
         _hover={{ color: "blue.500", cursor: "pointer" }}
       />
 
-       {isShow && (
+      {isShow && (
         <Box className="absolute top-[110%] left-0 bg-white border z-20 p-[5px]">
           <Box className="w-[290px] mt-[20px]">
             <Text fontSize="xs" mb={1}>
@@ -57,6 +57,18 @@ const UpdateListItem: React.FC<IlistItemProps> = (props) => {
               type="string"
               placeholder="name"
             />
+
+            <Button
+              onClick={() => {
+                setIsShow((prev) => !prev);
+              }}
+              mt={4}
+              mr={2}
+              bg="teal.400"
+              type="submit"
+            >
+              Cancel
+            </Button>
 
             <Button
               onClick={() => {

@@ -13,18 +13,12 @@ const AdminCategories: React.FC = () => {
     CategoryService.findAll
   );
 
-
   return (
     <LoadingProvider errors={error} loading={loading}>
       <div className="p-[50px]">
         <List spacing={5}>
           {data?.getAllCategory.map((e) => (
-            <DlistItem
-              triggerGetCategories={refetch}
-              key={nanoid()}
-              id={e.id}
-              label={e.label}
-            />
+            <DlistItem triggerGetCategories={refetch} key={nanoid()} {...e} />
           ))}
         </List>
         <CreateListItem triggerGetCategories={refetch} />

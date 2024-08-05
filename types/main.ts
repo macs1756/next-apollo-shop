@@ -12,4 +12,5 @@ export interface IlistItemProps {
   id: number;
   label: string;
   triggerGetCategories?: QueryResult<getCategories>["refetch"];
+  slug?: string;
 }
