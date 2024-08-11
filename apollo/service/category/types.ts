@@ -36,6 +36,7 @@ interface findOneCategoryConbineSubcategory {
 
 export interface findOneCategoryResponse {
   getOneCategory: {
+    id: number;
     label: string;
     slug: string;
     subcategories: findOneCategoryConbineSubcategory[];
