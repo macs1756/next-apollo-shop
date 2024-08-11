@@ -22,6 +22,7 @@ const findAll = gql`
 const findOne = gql`
   query GetOneCategory($slug: String!) {
     getOneCategory(slug: $slug) {
+      id
       label
       slug
       subcategories {
