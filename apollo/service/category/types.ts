@@ -1,7 +1,5 @@
 import { QueryResult } from "@apollo/client";
 
-
-
 export interface Category {
   __typename: string;
   id: number;
@@ -12,7 +10,6 @@ export interface Category {
 export type getCategories = {
   getAllCategory: Category[];
 };
-
 
 export interface CreateCategoryVariables {
   label: string;
@@ -28,6 +25,23 @@ export interface UpdateCategoryVariables {
   slug?: string;
 }
 
+export interface findOneCategoryVariables {
+  slug: string;
+}
+
+interface findOneCategoryConbineSubcategory {
+  label: string;
+  slug: string;
+}
+
+export interface findOneCategoryResponse {
+  getOneCategory: {
+    label: string;
+    slug: string;
+    subcategories: findOneCategoryConbineSubcategory[];
+  };
+}
+
 export interface UpdateCategoryResponse {
   updateCategory: Category;
 }
@@ -38,10 +52,9 @@ export interface DeleteCategoryVariables {
 
 export interface DeleteCategoryResponse {
   deleteCategory: {
-    message: string
+    message: string;
   };
 }
-
 
 export interface IcreateCategoryProps {
   triggerGetCategories: QueryResult<getCategories>["refetch"];
