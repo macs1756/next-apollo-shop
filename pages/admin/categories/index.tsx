@@ -9,7 +9,11 @@ import { nanoid } from "nanoid";
 import React from "react";
 
 const AdminCategories: React.FC = () => {
-  const { data, loading, error, refetch } = useQuery<getCategories>(
+  const {
+    data,
+    loading,
+    error,
+    refetch } = useQuery<getCategories>(
     CategoryService.findAll
   );
 
