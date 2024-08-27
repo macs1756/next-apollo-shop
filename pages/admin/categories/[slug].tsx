@@ -28,9 +28,12 @@ const CategorySingle: React.FC = () => {
     <LoadingProvider errors={error} loading={loading}>
       <div className="p-[50px]">
         <h4>moderation of the {data?.getOneCategory.label} category</h4>
-
         <ul className="py-[50px]">{data && renderSubcategoriesA(data)}</ul>
-        <CreateSubcategory categoryId={data?.getOneCategory?.id} refetch={refetch} />
+        {data
+         && <CreateSubcategory
+          categoryId={data?.getOneCategory?.id}
+          refetch={refetch}
+        />}
       </div>
     </LoadingProvider>
   );
